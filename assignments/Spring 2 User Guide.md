@@ -4,11 +4,11 @@ Music Machines is an Hour of Code activity to teach the computer science concept
 
 ## Step One:
 
-Visit our website to access the Music Machines game. If our activity gets chosen as an official Hour of Code, it will also be accessible at https://hourofcode.com/us/learn. 
+Visit [our website](https://blobband.com) to access the Music Machines game. If our activity gets chosen as an official Hour of Code, it will also be accessible at https://hourofcode.com/us/learn. 
 
 ## Step Two: 
 
-Press "Start my Hour of Code" and follow the instructions on each level. 
+Press "Let's get started!" and follow the instructions on each level. 
 
 ```
 screenshot here
