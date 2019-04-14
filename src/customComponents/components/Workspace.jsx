@@ -7,23 +7,23 @@ import GeoffComponent from '../components/GeoffComponent.jsx';
 import Lottie from 'react-lottie';
 import {colors} from '../constants.js'
 
-import * as geoffA from '../assets/sounds/geoffA.mp3';
-import * as geoffB from '../assets/sounds/geoffB.mp3';
-import * as geoffC from '../assets/sounds/geoffC.mp3';
-import * as geoffD from '../assets/sounds/geoffD.mp3';
-import * as geoffE from '../assets/sounds/geoffE.mp3';
+import geoffA from '../assets/sounds/geoffA.mp3';
+import geoffB from '../assets/sounds/geoffB.mp3';
+import geoffC from '../assets/sounds/geoffC.mp3';
+import geoffD from '../assets/sounds/geoffD.mp3';
+import geoffE from '../assets/sounds/geoffE.mp3';
 
-import * as freddieA from '../assets/sounds/freddieA.mp3';
-import * as freddieB from '../assets/sounds/freddieB.mp3';
-import * as freddieC from '../assets/sounds/freddieC.mp3';
-import * as freddieD from '../assets/sounds/freddieD.mp3';
-import * as freddieE from '../assets/sounds/freddieE.mp3';
+import freddieA from '../assets/sounds/freddieA.mp3';
+import freddieB from '../assets/sounds/freddieB.mp3';
+import freddieC from '../assets/sounds/freddieC.mp3';
+import freddieD from '../assets/sounds/freddieD.mp3';
+import freddieE from '../assets/sounds/freddieE.mp3';
 
-import * as lucyA from '../assets/sounds/lucyA.mp3';
-import * as lucyB from '../assets/sounds/lucyB.mp3';
-import * as lucyC from '../assets/sounds/lucyC.mp3';
-import * as lucyD from '../assets/sounds/lucyD.mp3';
-import * as lucyE from '../assets/sounds/lucyE.mp3';
+import lucyA from '../assets/sounds/lucyA.mp3';
+import lucyB from '../assets/sounds/lucyB.mp3';
+import lucyC from '../assets/sounds/lucyC.mp3';
+import lucyD from '../assets/sounds/lucyD.mp3';
+import lucyE from '../assets/sounds/lucyE.mp3';
 
 import geoffGlasses from '../assets/animations/geoffGlasses.json';
 import geoffJump from '../assets/animations/geoffJump.json';
@@ -47,6 +47,29 @@ import lucyJump from '../assets/animations/lucyJump.json';
 import lucySmall from '../assets/animations/lucySmall.json';
 
 import {createAnimationsArray} from '../assets/util.js';
+
+
+const soundFileToNameMap = {
+    [lucyA]: 'lucyA',
+    [lucyB]: 'lucyB',
+    [lucyC]: 'lucyC',
+    [lucyD]: 'lucyD',
+    [lucyE]: 'lucyE',
+    [geoffA]: 'geoffA',
+    [geoffB]: 'geoffB',
+    [geoffC]: 'geoffC',
+    [geoffD]: 'geoffD',
+    [geoffE]: 'geoffE',
+    [freddieA]: 'freddieA',
+    [freddieB]: 'freddieB',
+    [freddieC]: 'freddieC',
+    [freddieD]: 'freddieD',
+    [freddieE]: 'freddieE',
+};
+
+const getSoundNameFromFile = soundFile => soundFileToNameMap[soundFile];
+
+const getSoundNamesFromSongArray = songArray => songArray.map(song => getSoundNameFromFile(song));
 
 class Workspace extends Component {
     constructor() {
@@ -100,7 +123,7 @@ class Workspace extends Component {
     }
 
     getArrayAndHandleSound() {
-        let animations = createAnimationsArray(this.state.songArray);
+        let animations = createAnimationsArray(getSoundNamesFromSongArray(this.state.songArray));
         this.setState({
             animationsArray: animations,
             index: 0,

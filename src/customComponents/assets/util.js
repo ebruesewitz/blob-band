@@ -25,61 +25,59 @@ const isLucySoundName = soundName => getFirstCharFromSoundName(soundName) === 'l
 const isGeoffSoundName = soundName => getFirstCharFromSoundName(soundName) === 'g';
 const isFreddySoundName = soundName => getFirstCharFromSoundName(soundName) === 'f';
 
-
 export const createAnimationsArray = soundArray => (
     soundArray.map(sound => {
-        const slashIndex = sound.lastIndexOf('/');
-        const dotIndex = sound.indexOf('.');
-        const soundName = sound.slice(slashIndex+1, dotIndex);
-        const note = soundName[soundName.length-1];
+        // const slashIndex = sound.lastIndexOf('/');
+        // const dotIndex = sound.indexOf('.');
+        const note = sound[sound.length-1];
 
         switch (note) {
             case 'A':
-                if(isLucySoundName){
+                if(isLucySoundName(sound)){
                     return 0;
-                }else if(isGeoffSoundName){
+                }else if(isGeoffSoundName(sound)){
                     return 6;
-                }else if(isFreddySoundName){
+                }else if(isFreddySoundName(sound)){
                     return 12;
                 }
             case 'B':
-                if(isLucySoundName){
+                if(isLucySoundName(sound)){
                     return 1;
-                }else if(isGeoffSoundName){
+                }else if(isGeoffSoundName(sound)){
                     return 7;
-                }else if(isFreddySoundName){
+                }else if(isFreddySoundName(sound)){
                     return 13;
                 }
             case 'C':
-                if(isLucySoundName){
+                if(isLucySoundName(sound)){
                     return 2;
-                }else if(isGeoffSoundName){
+                }else if(isGeoffSoundName(sound)){
                     return 8;
-                }else if(isFreddySoundName){
+                }else if(isFreddySoundName(sound)){
                     return 14;
                 }
             case 'D':
-                if(isLucySoundName){
+                if(isLucySoundName(sound)){
                     return 3;
-                }else if(isGeoffSoundName){
+                }else if(isGeoffSoundName(sound)){
                     return 9;
-                }else if(isFreddySoundName){
+                }else if(isFreddySoundName(sound)){
                     return 15;
                 }
             case 'E':
-                if(isLucySoundName){
+                if(isLucySoundName(sound)){
                     return 4;
-                }else if(isGeoffSoundName){
+                }else if(isGeoffSoundName(sound)){
                     return 10;
-                }else if(isFreddySoundName){
+                }else if(isFreddySoundName(sound)){
                     return 16;
                 }
             default:
-                if(isLucySoundName){
+                if(isLucySoundName(sound)){
                     return 5;
-                }else if(isGeoffSoundName){
+                }else if(isGeoffSoundName(sound)){
                     return 11;
-                }else if(isFreddySoundName){
+                }else if(isFreddySoundName(sound)){
                     return 17;
                 }
         }
