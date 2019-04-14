@@ -46,6 +46,7 @@ const styles = {
     marginTop: 10,
     padding: 10,
     backgroundColor: '#88E7E0',
+    fontSize: 30,
     fontFamily: 'Roboto',
   },
   button: {
