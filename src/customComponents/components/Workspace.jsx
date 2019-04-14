@@ -3,7 +3,6 @@ import injectSheet from 'react-jss';
 import Button from './Button.jsx';
 import HintModal from './HintModal.jsx';
 import Sound from 'react-sound';
-import GeoffComponent from '../components/GeoffComponent.jsx';
 import Lottie from 'react-lottie';
 import {colors} from '../constants.js'
 
@@ -182,6 +181,7 @@ class Workspace extends Component {
     render() {
         const {
             classes,
+            blockData,
         } = this.props;
 
         const defaultOptionsFreddie = {

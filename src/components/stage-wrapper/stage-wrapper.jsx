@@ -19,7 +19,8 @@ const StageWrapperComponent = function (props) {
         isFullScreen,
         isRtl,
         stageSize,
-        vm
+        vm,
+        blockData,
     } = props;
 
     const stageDimensions = getStageDimensions(stageSize, isFullScreen);
@@ -45,7 +46,7 @@ const StageWrapperComponent = function (props) {
                     [styles.stageWrapper]: !isFullScreen,
                 })}
             >
-                <Workspace/>
+                <Workspace blockData={blockData}/>
             </div>
         </Box>
     );
