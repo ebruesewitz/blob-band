@@ -217,7 +217,7 @@ const blobBandStyles = {
     instructions: {
         minHeight: 80,
         margin: '10px 0px',
-        padding: 10,
+        padding: 20,
         backgroundColor: '#88E7E0',
         fontFamily: 'Roboto',
         borderRadius: 12,
@@ -227,6 +227,7 @@ const blobBandStyles = {
         fontSize: 17,
         textAlign: 'center',
         fontFamily: 'Helvetica',
+        paddingTop: 10,
     }
 }
 
