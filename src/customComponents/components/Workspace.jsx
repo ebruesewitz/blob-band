@@ -258,7 +258,7 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        paddingTop: 75,
+        paddingTop: 88,
     },
     workspace: {
         width: '100%',
@@ -271,7 +271,7 @@ const styles = {
         outline: 'none',
         maxWidth: '100%',
         margin: 0,
-        border: `solid 2px ${colors.darkGray}`,
+        border: `solid 2px ${colors.gray}`,
         flexDirection: 'column',
         padding: 0,
         borderRadius: 6,

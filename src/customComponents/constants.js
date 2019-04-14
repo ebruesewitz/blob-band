@@ -3,6 +3,7 @@ export const colors = {
   lightOrange: '#F3B476',
   white: '#FFFFFF',
   purple: "#8A70CE",
+  gray: '#a6a6a6',
 }
 
 
