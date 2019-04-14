@@ -115,6 +115,7 @@ class GUIComponent extends Component{
             tipsLibraryVisible,
             vm,
             classes,
+            blockData,
             ...componentProps
         } = omit(this.props, 'dispatch');
         if (children) {
@@ -209,6 +210,7 @@ class GUIComponent extends Component{
                                     isRtl={isRtl}
                                     stageSize={stageSize}
                                     vm={vm}
+                                    blockData={blockData}
                                 />
                             </Box>
                         </Box>
@@ -318,7 +320,8 @@ GUIComponent.defaultProps = {
 
 const mapStateToProps = state => ({
     // This is the button's mode, as opposed to the actual current state
-    stageSizeMode: state.scratchGui.stageSize.stageSize
+    stageSizeMode: state.scratchGui.stageSize.stageSize,
+    blockData: state.scratchGui.vm
 });
 
 const GUIComponentWithClasses = (injectIntl(connect(
