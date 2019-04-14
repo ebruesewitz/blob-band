@@ -4,7 +4,7 @@ import Button from './Button.jsx';
 import HintModal from './HintModal.jsx';
 import Sound from 'react-sound';
 import Lottie from 'react-lottie';
-import {colors} from '../constants.js'
+import { colors } from '../constants.js'
 
 import geoffA from '../assets/sounds/geoffA.mp3';
 import geoffB from '../assets/sounds/geoffB.mp3';
@@ -45,7 +45,7 @@ import lucyIdle from '../assets/animations/lucyIdle.json';
 import lucyJump from '../assets/animations/lucyJump.json';
 import lucySmall from '../assets/animations/lucySmall.json';
 
-import {createAnimationsArray} from '../assets/util.js';
+import { createAnimationsArray } from '../assets/util.js';
 
 
 const soundFileToNameMap = {
@@ -141,7 +141,7 @@ class Workspace extends Component {
         });
     }
 
-    handleSongFinishedPlaying () {
+    handleSongFinishedPlaying() {
         if (this.state.index <= this.state.songArray.length - 1) {
             this.setState({
                 currentSong: this.state.songArray[this.state.index],
@@ -160,7 +160,7 @@ class Workspace extends Component {
         }
     }
 
-    handleAnimation () {
+    handleAnimation() {
         if (this.state.index <= this.state.animationsArray.length) {
             if (this.state.animationsArray[this.state.index - 1] < 5) {
                 this.setState({
@@ -215,15 +215,15 @@ class Workspace extends Component {
                     <div className={classes.workspace} >
                         <div>
                             <Lottie options={defaultOptionsFreddie}
-                                height={200}
-                                width={200}
+                                height={210}
+                                width={210}
                                 isStopped={this.state.isStopped}
                                 isPaused={this.state.isPaused} />
                         </div>
                         <div className={classes.gridDisplay}>
                             <Lottie options={defaultOptionsLucy}
-                                height={200}
-                                width={200}
+                                height={170}
+                                width={170}
                                 isStopped={this.state.isStopped}
                                 isPaused={this.state.isPaused} />
                             <Lottie options={defaultOptionsGeoff}
