@@ -258,6 +258,7 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
+        paddingTop: 75,
     },
     workspace: {
         width: '100%',
