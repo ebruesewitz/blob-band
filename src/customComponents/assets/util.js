@@ -72,6 +72,14 @@ export const createAnimationsArray = soundArray => (
                 }else if(isFreddySoundName(sound)){
                     return 16;
                 }
+            case 't':
+                if(isLucySoundName(sound)){
+                    return 5;
+                }else if(isGeoffSoundName(sound)){
+                    return 11;
+                }else if(isFreddySoundName(sound)){
+                    return 17;
+                }
             default:
                 if(isLucySoundName(sound)){
                     return 5;

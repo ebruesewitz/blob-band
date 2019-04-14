@@ -11,18 +11,21 @@ import geoffB from '../assets/sounds/geoffB.mp3';
 import geoffC from '../assets/sounds/geoffC.mp3';
 import geoffD from '../assets/sounds/geoffD.mp3';
 import geoffE from '../assets/sounds/geoffE.mp3';
+import geoffRest from '../assets/sounds/geoffRest.mp3';
 
 import freddieA from '../assets/sounds/freddieA.mp3';
 import freddieB from '../assets/sounds/freddieB.mp3';
 import freddieC from '../assets/sounds/freddieC.mp3';
 import freddieD from '../assets/sounds/freddieD.mp3';
 import freddieE from '../assets/sounds/freddieE.mp3';
+import freddieRest from '../assets/sounds/freddieRest.mp3';
 
 import lucyA from '../assets/sounds/lucyA.mp3';
 import lucyB from '../assets/sounds/lucyB.mp3';
 import lucyC from '../assets/sounds/lucyC.mp3';
 import lucyD from '../assets/sounds/lucyD.mp3';
 import lucyE from '../assets/sounds/lucyE.mp3';
+import lucyRest from '../assets/sounds/lucyRest.mp3';
 
 import geoffGlasses from '../assets/animations/geoffGlasses.json';
 import geoffJump from '../assets/animations/geoffJump.json';
@@ -54,16 +57,19 @@ const soundFileToNameMap = {
     [lucyC]: 'lucyC',
     [lucyD]: 'lucyD',
     [lucyE]: 'lucyE',
+    [lucyRest]: 'lucyRest',
     [geoffA]: 'geoffA',
     [geoffB]: 'geoffB',
     [geoffC]: 'geoffC',
     [geoffD]: 'geoffD',
     [geoffE]: 'geoffE',
+    [geoffRest]: 'geoffRest',
     [freddieA]: 'freddieA',
     [freddieB]: 'freddieB',
     [freddieC]: 'freddieC',
     [freddieD]: 'freddieD',
     [freddieE]: 'freddieE',
+    [freddieRest]: 'freddieRest',
 };
 
 const getSoundNameFromFile = soundFile => soundFileToNameMap[soundFile];
@@ -76,15 +82,20 @@ class Workspace extends Component {
         this.state = {
             shouldRenderSound: false,
             songArray: [
-                freddieA,
-                geoffB,
-                lucyC,
-                freddieD,
                 lucyE,
                 geoffD,
-                geoffC,
-                lucyA,
-                freddieB,
+                freddieC,
+                freddieD,
+                lucyE,
+                geoffE,
+                freddieE,
+                geoffD,
+                lucyD,
+                freddieD,
+                lucyC,
+                freddieE,
+                geoffE,
+
             ],
             currentSong: null,
             index: 0,
