@@ -235,7 +235,7 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        paddingTop: 70,
+        paddingTop: 75,
     },
     workspace: {
         width: '100%',
