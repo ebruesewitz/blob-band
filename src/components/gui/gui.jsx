@@ -27,6 +27,8 @@ import {resolveStageSize} from '../../lib/screen-utils';
 import styles from './gui.css';
 import codeIcon from './icon--code.svg';
 
+import TitlePage from '../../customComponents/components/TitlePage.jsx'
+
 const messages = defineMessages({
     addExtension: {
         id: 'gui.gui.addExtension',
@@ -43,7 +45,7 @@ class GUIComponent extends Component{
     constructor(props){
         super(props);
         this.state = {
-            currentSelectedStep: 1,
+            currentSelectedStep: 0,
         }
         this.setCurrentSelectedStep = this.setCurrentSelectedStep.bind(this);
     }
@@ -137,19 +139,8 @@ class GUIComponent extends Component{
         return (<MediaQuery minWidth={layout.fullSizeMinWidth}>{isFullSize => {
             const stageSize = resolveStageSize(stageSizeMode, isFullSize);
 
-            return isPlayerOnly ? (
-                <StageWrapper
-                    isFullScreen={isFullScreen}
-                    isRendererSupported={isRendererSupported}
-                    isRtl={isRtl}
-                    loading={loading}
-                    stageSize={STAGE_SIZE_MODES.large}
-                    vm={vm}
-                >
-                    {alertsVisible ? (
-                        <Alerts className={styles.alertsContainer} />
-                    ) : null}
-                </StageWrapper>
+            return this.state.currentSelectedStep === 0 ? (
+                <TitlePage onClick={()=>{this.setCurrentSelectedStep(1)}}/>
             ) : (
                 <Box
                     className={styles.pageWrapper}
