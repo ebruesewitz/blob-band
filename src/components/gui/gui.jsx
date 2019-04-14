@@ -222,9 +222,9 @@ const blobBandStyles = {
         textAlign: 'center'
     },
     instructionText: {
-        fontSize: 14,
+        fontSize: 17,
         textAlign: 'center',
-        fontFamily: 'Roboto',
+        fontFamily: 'Helvetica',
     }
 }
 

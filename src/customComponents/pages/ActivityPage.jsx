@@ -13,7 +13,7 @@ const ActivityPageWithClasses = ({
     <div className={classes.page}>
       <ProgressBar currentSelectedStepNumber={currentLevel} numSteps={numLevels} />
       <div className={classes.instructions} border={{ color: 'none', size: 'small' }} round='small'>
-        <span size='small' spanAlign='center'>{instructions}</span>
+        <span className={classes.instructions} spanAlign='center'>{instructions}</span>
       </div>
       <div className={classes.flexCenter}>
         <Workspace />
@@ -44,8 +44,6 @@ const styles = {
     marginTop: 10,
     padding: 10,
     backgroundColor: '#88E7E0',
-    fontSize: '30px',
-    fontFamily: 'Roboto',
   },
   button: {
     margin: 5,
