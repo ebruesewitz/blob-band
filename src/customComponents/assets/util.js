@@ -19,83 +19,69 @@
     freddieIdle,
 ] */
 
-export default class Util {
-    static createAnimationsArray(soundArray) {
-        let animationsArray = [];
-        let slashIndex;
-        let dotIndex;
-        for (let i = 0; i < soundArray.length; i++) {
-            slashIndex = soundArray[i].lastIndexOf('/');
-            dotIndex = soundArray[i].indexOf('.');
-            let soundName = soundArray[i].slice(slashIndex + 1, dotIndex);
-            if (soundName[0] === 'l') {
-                let sound = soundName[soundName.length - 1];
-                switch (sound) {
-                    case 'A':
-                        animationsArray.push(0);
-                        break;
-                    case 'B':
-                        animationsArray.push(1);
-                        break;
-                    case 'C':
-                        animationsArray.push(2);
-                        break;
-                    case 'D':
-                        animationsArray.push(3);
-                        break;
-                    case 'E':
-                        animationsArray.push(4);
-                        break;
-                    default:
-                        animationsArray.push(5);
-                        break;
+const getFirstCharFromSoundName = soundName => soundName[0];
+
+const isLucySoundName = soundName => getFirstCharFromSoundName(soundName) === 'l';
+const isGeoffSoundName = soundName => getFirstCharFromSoundName(soundName) === 'g';
+const isFreddySoundName = soundName => getFirstCharFromSoundName(soundName) === 'f';
+
+
+export const createAnimationsArray = soundArray => (
+    soundArray.map(sound => {
+        const slashIndex = sound.lastIndexOf('/');
+        const dotIndex = sound.indexOf('.');
+        const soundName = sound.slice(slashIndex+1, dotIndex);
+        const note = soundName[soundName.length-1];
+
+        switch (note) {
+            case 'A':
+                if(isLucySoundName){
+                    return 0;
+                }else if(isGeoffSoundName){
+                    return 6;
+                }else if(isFreddySoundName){
+                    return 12;
                 }
-            } else if (soundName[0] === 'g') {
-                let sound = soundName[soundName.length - 1];
-                switch (sound) {
-                    case 'A':
-                        animationsArray.push(6);
-                        break;
-                    case 'B':
-                        animationsArray.push(7);
-                        break;
-                    case 'C':
-                        animationsArray.push(8);
-                        break;
-                    case 'D':
-                        animationsArray.push(9);
-                        break;
-                    case 'E':
-                        animationsArray.push(10);
-                        break;
-                    default:
-                        animationsArray.push(11);
-                        break;
+            case 'B':
+                if(isLucySoundName){
+                    return 1;
+                }else if(isGeoffSoundName){
+                    return 7;
+                }else if(isFreddySoundName){
+                    return 13;
                 }
-            } else if (soundName[0] === 'f') {
-                let sound = soundName[soundName.length - 1];
-                switch (sound) {
-                    case 'A':
-                        animationsArray.push(12);
-                        break;
-                    case 'B':
-                        animationsArray.push(13);
-                        break;
-                    case 'C':
-                        animationsArray.push(14);
-                        break;
-                    case 'D':
-                        animationsArray.push(15);
-                        break;
-                    case 'E':
-                        animationsArray.push(16);
-                        break;
-                    default:
-                        animationsArray.push(17);
-                        break;
+            case 'C':
+                if(isLucySoundName){
+                    return 2;
+                }else if(isGeoffSoundName){
+                    return 8;
+                }else if(isFreddySoundName){
+                    return 14;
                 }
-            }
+            case 'D':
+                if(isLucySoundName){
+                    return 3;
+                }else if(isGeoffSoundName){
+                    return 9;
+                }else if(isFreddySoundName){
+                    return 15;
+                }
+            case 'E':
+                if(isLucySoundName){
+                    return 4;
+                }else if(isGeoffSoundName){
+                    return 10;
+                }else if(isFreddySoundName){
+                    return 16;
+                }
+            default:
+                if(isLucySoundName){
+                    return 5;
+                }else if(isGeoffSoundName){
+                    return 11;
+                }else if(isFreddySoundName){
+                    return 17;
+                }
         }
-        return animationsArray;
-    }
-}
+    })
+)
