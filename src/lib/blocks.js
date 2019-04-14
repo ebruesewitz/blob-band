@@ -73,38 +73,6 @@ export default function (vm) {
         };
     };
 
-    const soundsMenu = function () {
-        let menu = [['', '']];
-        if (vm.editingTarget && vm.editingTarget.sprite.sounds.length > 0) {
-            menu = vm.editingTarget.sprite.sounds.map(sound => [sound.name, sound.name]);
-        }
-        menu.push([
-            ScratchBlocks.ScratchMsgs.translate('SOUND_RECORD', 'record...'),
-            ScratchBlocks.recordSoundCallback
-        ]);
-        return menu;
-    };
-
-    const costumesMenu = function () {
-        if (vm.editingTarget && vm.editingTarget.getCostumes().length > 0) {
-            return vm.editingTarget.getCostumes().map(costume => [costume.name, costume.name]);
-        }
-        return [['', '']];
-    };
-
-    const backdropsMenu = function () {
-        const next = ScratchBlocks.ScratchMsgs.translate('LOOKS_NEXTBACKDROP', 'next backdrop');
-        const previous = ScratchBlocks.ScratchMsgs.translate('LOOKS_PREVIOUSBACKDROP', 'previous backdrop');
-        const random = ScratchBlocks.ScratchMsgs.translate('LOOKS_RANDOMBACKDROP', 'random backdrop');
-        if (vm.runtime.targets[0] && vm.runtime.targets[0].getCostumes().length > 0) {
-            return vm.runtime.targets[0].getCostumes().map(costume => [costume.name, costume.name])
-                .concat([[next, 'next backdrop'],
-                    [previous, 'previous backdrop'],
-                    [random, 'random backdrop']]);
-        }
-        return [['', '']];
-    };
-
     const backdropNamesMenu = function () {
         const stage = vm.runtime.getTargetForStage();
         if (stage && stage.getCostumes().length > 0) {
@@ -141,32 +109,12 @@ export default function (vm) {
         return [[myself, '_myself_']].concat(spriteMenu());
     };
 
-    const soundColors = ScratchBlocks.Colours.sounds;
-
-    const looksColors = ScratchBlocks.Colours.looks;
 
     const motionColors = ScratchBlocks.Colours.motion;
 
     const sensingColors = ScratchBlocks.Colours.sensing;
 
-    const controlColors = ScratchBlocks.Colours.control;
-
     const eventColors = ScratchBlocks.Colours.event;
-
-    ScratchBlocks.Blocks.sound_sounds_menu.init = function () {
-        const json = jsonForMenuBlock('SOUND_MENU', soundsMenu, soundColors, []);
-        this.jsonInit(json);
-    };
-
-    ScratchBlocks.Blocks.looks_costume.init = function () {
-        const json = jsonForMenuBlock('COSTUME', costumesMenu, looksColors, []);
-        this.jsonInit(json);
-    };
-
-    ScratchBlocks.Blocks.looks_backdrops.init = function () {
-        const json = jsonForMenuBlock('BACKDROP', backdropsMenu, looksColors, []);
-        this.jsonInit(json);
-    };
 
     ScratchBlocks.Blocks.event_whenbackdropswitchesto.init = function () {
         const json = jsonForHatBlockMenu(
@@ -296,11 +244,6 @@ export default function (vm) {
             [mouse, '_mouse_'],
             [edge, '_edge_']
         ]);
-        this.jsonInit(json);
-    };
-
-    ScratchBlocks.Blocks.control_create_clone_of_menu.init = function () {
-        const json = jsonForMenuBlock('CLONE_OPTION', cloneMenu, controlColors, []);
         this.jsonInit(json);
     };
 

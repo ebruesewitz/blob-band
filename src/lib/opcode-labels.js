@@ -17,34 +17,6 @@ const messages = defineMessages({
         id: 'gui.opcodeLabels.yposition'
     },
 
-    // Looks
-    looks_size: {
-        defaultMessage: 'size',
-        description: 'Label for the size monitor when shown on the stage',
-        id: 'gui.opcodeLabels.size'
-    },
-    looks_costumename: {
-        defaultMessage: 'costume name',
-        description: 'Label for the costume name monitor when shown on the stage',
-        id: 'gui.opcodeLabels.costumename'
-    },
-    looks_costumenumber: {
-        defaultMessage: 'costume number',
-        description: 'Label for the costume number monitor when shown on the stage',
-        id: 'gui.opcodeLabels.costumenumber'
-    },
-    looks_backdropname: {
-        defaultMessage: 'backdrop name',
-        description: 'Label for the backdrop name monitor when shown on the stage',
-        id: 'gui.opcodeLabels.backdropname'
-    },
-    looks_backdropnumber: {
-        defaultMessage: 'backdrop number',
-        description: 'Label for the backdrop number monitor when shown on the stage',
-        id: 'gui.opcodeLabels.backdropnumber'
-    },
-
-
     // Sound
     sound_volume: {
         defaultMessage: 'volume',
@@ -135,12 +107,6 @@ class OpcodeLabels {
             motion_xposition: {category: 'motion'},
             motion_yposition: {category: 'motion'},
 
-            // Looks
-            looks_size: {category: 'looks'},
-            looks_costumenumbername: {category: 'looks'},
-            looks_backdropnumbername: {category: 'looks'},
-            looks_backdropname: {category: 'looks'},
-
             // Data
             data_variable: {category: 'data'},
             data_listcontents: {category: 'list'},
@@ -181,21 +147,6 @@ class OpcodeLabels {
         this._opcodeMap.motion_xposition.labelFn = () => this._translator(messages.motion_xposition);
         this._opcodeMap.motion_yposition.labelFn = () => this._translator(messages.motion_yposition);
 
-        // Looks
-        this._opcodeMap.looks_size.labelFn = () => this._translator(messages.looks_size);
-        this._opcodeMap.looks_costumenumbername.labelFn = params => {
-            if (params.NUMBER_NAME === 'number') {
-                return this._translator(messages.looks_costumenumber);
-            }
-            return this._translator(messages.looks_costumename);
-        };
-        this._opcodeMap.looks_backdropnumbername.labelFn = params => {
-            if (params.NUMBER_NAME === 'number') {
-                return this._translator(messages.looks_backdropnumber);
-            }
-            return this._translator(messages.looks_backdropname);
-        };
-        this._opcodeMap.looks_backdropname.labelFn = () => this._translator(messages.looks_backdropname);
 
         // Data
         this._opcodeMap.data_variable.labelFn = params => params.VARIABLE;

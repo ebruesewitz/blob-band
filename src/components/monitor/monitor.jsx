@@ -16,9 +16,6 @@ import styles from './monitor.css';
 const categories = {
     data: '#FF8C1A',
     sensing: '#5CB1D6',
-    sound: '#CF63CF',
-    looks: '#9966FF',
-    motion: '#4C97FF',
     list: '#FC662C',
     extension: '#0FBD8C'
 };
