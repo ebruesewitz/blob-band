@@ -4,25 +4,28 @@ import Button from './Button.jsx';
 import HintModal from './HintModal.jsx';
 import Sound from 'react-sound';
 import Lottie from 'react-lottie';
-import {colors} from '../constants.js'
+import { colors } from '../constants.js'
 
 import geoffA from '../assets/sounds/geoffA.mp3';
 import geoffB from '../assets/sounds/geoffB.mp3';
 import geoffC from '../assets/sounds/geoffC.mp3';
 import geoffD from '../assets/sounds/geoffD.mp3';
 import geoffE from '../assets/sounds/geoffE.mp3';
+import geoffRest from '../assets/sounds/geoffRest.mp3';
 
 import freddieA from '../assets/sounds/freddieA.mp3';
 import freddieB from '../assets/sounds/freddieB.mp3';
 import freddieC from '../assets/sounds/freddieC.mp3';
 import freddieD from '../assets/sounds/freddieD.mp3';
 import freddieE from '../assets/sounds/freddieE.mp3';
+import freddieRest from '../assets/sounds/freddieRest.mp3';
 
 import lucyA from '../assets/sounds/lucyA.mp3';
 import lucyB from '../assets/sounds/lucyB.mp3';
 import lucyC from '../assets/sounds/lucyC.mp3';
 import lucyD from '../assets/sounds/lucyD.mp3';
 import lucyE from '../assets/sounds/lucyE.mp3';
+import lucyRest from '../assets/sounds/lucyRest.mp3';
 
 import geoffGlasses from '../assets/animations/geoffGlasses.json';
 import geoffJump from '../assets/animations/geoffJump.json';
@@ -45,7 +48,7 @@ import lucyIdle from '../assets/animations/lucyIdle.json';
 import lucyJump from '../assets/animations/lucyJump.json';
 import lucySmall from '../assets/animations/lucySmall.json';
 
-import {createAnimationsArray} from '../assets/util.js';
+import { createAnimationsArray } from '../assets/util.js';
 
 
 const soundFileToNameMap = {
@@ -54,16 +57,19 @@ const soundFileToNameMap = {
     [lucyC]: 'lucyC',
     [lucyD]: 'lucyD',
     [lucyE]: 'lucyE',
+    [lucyRest]: 'lucyRest',
     [geoffA]: 'geoffA',
     [geoffB]: 'geoffB',
     [geoffC]: 'geoffC',
     [geoffD]: 'geoffD',
     [geoffE]: 'geoffE',
+    [geoffRest]: 'geoffRest',
     [freddieA]: 'freddieA',
     [freddieB]: 'freddieB',
     [freddieC]: 'freddieC',
     [freddieD]: 'freddieD',
     [freddieE]: 'freddieE',
+    [freddieRest]: 'freddieRest',
 };
 
 const getSoundNameFromFile = soundFile => soundFileToNameMap[soundFile];
@@ -76,15 +82,20 @@ class Workspace extends Component {
         this.state = {
             shouldRenderSound: false,
             songArray: [
-                freddieA,
-                geoffB,
-                lucyC,
-                freddieD,
                 lucyE,
                 geoffD,
-                geoffC,
-                lucyA,
-                freddieB,
+                freddieC,
+                freddieD,
+                lucyE,
+                geoffE,
+                freddieE,
+                geoffD,
+                lucyD,
+                freddieD,
+                lucyC,
+                freddieE,
+                geoffE,
+
             ],
             currentSong: null,
             index: 0,
@@ -141,7 +152,7 @@ class Workspace extends Component {
         });
     }
 
-    handleSongFinishedPlaying () {
+    handleSongFinishedPlaying() {
         if (this.state.index <= this.state.songArray.length - 1) {
             this.setState({
                 currentSong: this.state.songArray[this.state.index],
@@ -160,7 +171,7 @@ class Workspace extends Component {
         }
     }
 
-    handleAnimation () {
+    handleAnimation() {
         if (this.state.index <= this.state.animationsArray.length) {
             if (this.state.animationsArray[this.state.index - 1] < 5) {
                 this.setState({
@@ -215,15 +226,15 @@ class Workspace extends Component {
                     <div className={classes.workspace} >
                         <div>
                             <Lottie options={defaultOptionsFreddie}
-                                height={200}
-                                width={200}
+                                height={210}
+                                width={210}
                                 isStopped={this.state.isStopped}
                                 isPaused={this.state.isPaused} />
                         </div>
                         <div className={classes.gridDisplay}>
                             <Lottie options={defaultOptionsLucy}
-                                height={200}
-                                width={200}
+                                height={170}
+                                width={170}
                                 isStopped={this.state.isStopped}
                                 isPaused={this.state.isPaused} />
                             <Lottie options={defaultOptionsGeoff}
@@ -258,7 +269,7 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        paddingTop: 75,
+        paddingTop: 88,
     },
     workspace: {
         width: '100%',
@@ -271,7 +282,7 @@ const styles = {
         outline: 'none',
         maxWidth: '100%',
         margin: 0,
-        border: `solid 2px ${colors.darkGray}`,
+        border: `solid 2px ${colors.gray}`,
         flexDirection: 'column',
         padding: 0,
         borderRadius: 6,
