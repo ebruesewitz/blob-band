@@ -46,7 +46,7 @@ import lucyIdle from '../assets/animations/lucyIdle.json';
 import lucyJump from '../assets/animations/lucyJump.json';
 import lucySmall from '../assets/animations/lucySmall.json';
 
-import Util from '../assets/util';
+import Util from '../assets/util.js';
 
 class Workspace extends Component {
     constructor() {
@@ -93,6 +93,10 @@ class Workspace extends Component {
                 freddieIdle,
             ]
         };
+        this.handleSongFinishedPlaying = this.handleSongFinishedPlaying.bind(this);
+        this.getArrayAndHandleSound = this.getArrayAndHandleSound.bind(this);
+        this.handlePlaySound = this.handlePlaySound.bind(this);
+        this.handleAnimation = this.handleAnimation.bind(this);
     }
 
     getArrayAndHandleSound() {
