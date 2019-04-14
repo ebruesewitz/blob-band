@@ -46,7 +46,7 @@ import lucyIdle from '../assets/animations/lucyIdle.json';
 import lucyJump from '../assets/animations/lucyJump.json';
 import lucySmall from '../assets/animations/lucySmall.json';
 
-import Util from '../assets/util.js';
+import {createAnimationsArray} from '../assets/util.js';
 
 class Workspace extends Component {
     constructor() {
@@ -100,7 +100,7 @@ class Workspace extends Component {
     }
 
     getArrayAndHandleSound() {
-        let animations = Util.createAnimationsArray(this.state.songArray);
+        let animations = createAnimationsArray(this.state.songArray);
         this.setState({
             animationsArray: animations,
             index: 0,
