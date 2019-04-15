@@ -107,10 +107,7 @@ class Workspace extends Component {
             showPassModal: false,
             modalText: '',
             modalButtonText: '',
-            songArray: [
-                freddieA,
-                freddieA,
-            ],
+            songArray: [],
             currentSong: null,
             index: 0,
             isStopped: false,
@@ -161,11 +158,11 @@ class Workspace extends Component {
 
     getArrayAndHandleSound() {
         const soundArray = convertSoundNamesToFiles(transformBlockData(this.props.blockData));
-        let animations = createAnimationsArray(getSoundNamesFromSongArray(this.state.songArray));
+        let animations = createAnimationsArray(getSoundNamesFromSongArray(soundArray));
         this.setState({
             animationsArray: animations,
             index: 0,
-            // songArray: soundArray,
+            songArray: soundArray,
         }, () => {
             this.handlePlaySound();
         });
