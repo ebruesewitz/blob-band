@@ -233,6 +233,8 @@ export function validateBlocks(currentLevel, songArray, blockData) {
                 return false;
             }
         });
+        default:
+            return true;
             
     }
 }
