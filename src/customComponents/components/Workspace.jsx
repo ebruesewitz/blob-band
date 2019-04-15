@@ -4,7 +4,9 @@ import Button from './Button.jsx';
 import HintModal from './HintModal.jsx';
 import Sound from 'react-sound';
 import Lottie from 'react-lottie';
-import { colors } from '../constants.js'
+import { colors } from '../constants.js';
+import Modal from 'react-modal';
+import * as constants from '../assets/textOptions';
 
 import geoffA from '../assets/sounds/geoffA.mp3';
 import geoffB from '../assets/sounds/geoffB.mp3';
@@ -48,7 +50,7 @@ import lucyIdle from '../assets/animations/lucyIdle.json';
 import lucyJump from '../assets/animations/lucyJump.json';
 import lucySmall from '../assets/animations/lucySmall.json';
 
-import { createAnimationsArray } from '../assets/util.js';
+import { createAnimationsArray, validateBlocks } from '../assets/util.js';
 
 
 const soundFileToNameMap = {
@@ -81,21 +83,13 @@ class Workspace extends Component {
         super();
         this.state = {
             shouldRenderSound: false,
+            showPassModal: false,
+            modalText: '',
+            modalButtonText: '',
             songArray: [
-                lucyE,
                 geoffD,
                 freddieC,
                 freddieD,
-                lucyE,
-                geoffE,
-                freddieE,
-                geoffD,
-                lucyD,
-                freddieD,
-                lucyC,
-                freddieE,
-                geoffE,
-
             ],
             currentSong: null,
             index: 0,
@@ -130,6 +124,16 @@ class Workspace extends Component {
         this.getArrayAndHandleSound = this.getArrayAndHandleSound.bind(this);
         this.handlePlaySound = this.handlePlaySound.bind(this);
         this.handleAnimation = this.handleAnimation.bind(this);
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+    }
+
+    handleOpenModal() {
+        this.setState({ showModal: true });
+    }
+
+    handleCloseModal() {
+        this.setState({ showModal: false });
     }
 
     getArrayAndHandleSound() {
@@ -148,7 +152,6 @@ class Workspace extends Component {
             currentSong: this.state.songArray[this.state.index],
             index: this.state.index + 1,
         }, () => {
-            console.log(this.state)
         });
     }
 
@@ -168,6 +171,20 @@ class Workspace extends Component {
                 currentGeoffAnimation: geoffIdle,
                 currentFreddieAnimation: freddieIdle,
             })
+            let songs = getSoundNamesFromSongArray(this.state.songArray);
+            let didPassLevel = validateBlocks(1, songs);
+            if (didPassLevel) {
+                this.setState({
+                    modalText: 'Great job! You did it.',
+                    modalButtonText: 'Next',
+                })
+            } else {
+                this.setState({
+                    modalText: 'That\'s not quite right.',
+                    modalButtonText: 'Try again',
+                })
+            }
+            this.handleOpenModal();
         }
     }
 
@@ -249,6 +266,16 @@ class Workspace extends Component {
                     this.getArrayAndHandleSound();
                 }} />
                 <HintModal />
+                <div className={classes.modalCenter}>
+                    <Modal className={classes.modal}
+                        isOpen={this.state.showModal}
+                    >
+                        <span className={classes.hint}>{this.state.modalText}</span>
+                        <div className={classes.girdDisplay}>
+                            <Button className={classes.modalButton} label={this.state.modalButtonText} onClick={this.handleCloseModal}></Button>
+                        </div>
+                    </Modal>
+                </div>
                 {this.state.shouldRenderSound && <Sound
                     url={this.state.currentSong}
                     playStatus={Sound.status.PLAYING}
@@ -296,6 +323,33 @@ const styles = {
     gridDisplay: {
         display: 'grid',
         gridTemplateColumns: 'auto auto',
+    },
+    modalCenter: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+    },
+    modalButton: {
+        margin: 5,
+        marginTop: 10,
+    },
+    modal: {
+        width: '30%',
+        height: '30%',
+        position: 'fixed',
+        top: '25%',
+        right: '35%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        borderRadius: '5px',
+        borderStyle: 'solid',
+        borderColor: 'grey',
+        borderWidth: 2,
+        outline: 'none !important',
+        zIndex: 69,
     },
 }
 
