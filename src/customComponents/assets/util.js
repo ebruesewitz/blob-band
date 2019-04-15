@@ -191,7 +191,10 @@ export const createAnimationsArray = soundArray => (
 
 export function validateBlocks(currentLevel, songArray) {
     console.log(songArray);
-    switch(currentLevel) {
+    if (!songArray) {
+        return false;
+    }
+        switch(currentLevel) {
         case 1:
             for (let i = 0; i < songArray.length; i++) {
                 if (songArray[i].indexOf('lucy') !== -1) {
@@ -200,5 +203,6 @@ export function validateBlocks(currentLevel, songArray) {
                     return false;
                 }
             }
+            break;
     }
 }
