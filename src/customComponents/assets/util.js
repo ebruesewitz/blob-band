@@ -22,7 +22,23 @@
 const OPCODES = {
     RUN_BLOCK: 'event_whenflagclicked',
     LOOP_BLOCK: 'control_repeat',
+    LUCY_BLOCK: 'control_lucy',
+    GEOFF_BLOCK: 'control_geoff',
+    FREDDIE_BLOCK: 'control_freddie',
 }
+
+const opCodesToCharMap = {
+    [OPCODES.LUCY_BLOCK]: 'lucy',
+    [OPCODES.GEOFF_BLOCK]: 'geoff',
+    [OPCODES.FREDDIE_BLOCK]: 'freddie',
+}
+
+const grabNote = value => {
+    if(value === "rest"){
+        return value;
+    }
+    return value.slice(-1)
+};
 
 const getFirstCharFromSoundName = soundName => soundName[0];
 
@@ -79,6 +95,17 @@ const sortBlocks = (blockData, startBlockId) => {
     return sortedArray;
 }
 
+const getSoundsFromSortedArray = (blockData, sortedArray) => (
+    sortedArray.map(elId => {
+        const data = blockData[elId]
+        const opCode = data.opcode;
+        const note = grabNote(data.fields.notes.value);
+
+        const character = opCodesToCharMap[opCode];
+        return `${character}${note}`;
+    })
+)
+
 export const transformBlockData = blockData => {
     let sortedData = [];
 
@@ -91,7 +118,7 @@ export const transformBlockData = blockData => {
             return false;
         });
     }
-    return sortedData;
+    return getSoundsFromSortedArray(blockData, sortedData);
 }
 
 
