@@ -195,7 +195,7 @@ class Workspace extends Component {
                 currentFreddieAnimation: freddieIdle,
             })
             let songs = getSoundNamesFromSongArray(this.state.songArray);
-            let didPassLevel = validateBlocks(1, songs);
+            let didPassLevel = validateBlocks(this.props.currentSelectedStep, songs, this.props.blockData);
             if (didPassLevel) {
                 this.setState({
                     modalText: 'Great job! You did it.',

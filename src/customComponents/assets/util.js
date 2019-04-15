@@ -189,7 +189,7 @@ export const createAnimationsArray = soundArray => (
     })
 )
 
-export function validateBlocks(currentLevel, songArray) {
+export function validateBlocks(currentLevel, songArray, blockData) {
     console.log(songArray);
     if (!songArray) {
         return false;
@@ -203,6 +203,36 @@ export function validateBlocks(currentLevel, songArray) {
                     return false;
                 }
             }
-            break;
+        case 3:
+            let count = 0;
+            for (let i = 0; i < songArray.length; i++) {
+                if (songArray[i].indexOf('freddieB') !== -1) {
+                    count = count + 1;
+                }
+            }
+            if (count === 6) {
+                return true;
+            } else {
+                return false;
+            }
+        case 4:
+            Object.keys(blockData).some((id) => {
+            if(blockData[id].opcode === OPCODES.LOOP_BLOCK){
+                let count = 0;
+            for (let i = 0; i < songArray.length; i++) {
+                if (songArray[i].indexOf('freddieB') !== -1) {
+                    count = count + 1;
+                }
+            }
+            if (count === 6) {
+                return true;
+            } else {
+                return false;
+            }
+            } else {
+                return false;
+            }
+        });
+            
     }
 }
