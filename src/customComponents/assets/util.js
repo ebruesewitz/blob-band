@@ -202,6 +202,23 @@ export function validateBlocks(currentLevel, songArray, blockData) {
                     return false;
                 }
             }
+        case 2:
+            let didLucyPlay = false;
+            let didFreddiePlay = false;
+            let didGeoffPlay = false;
+
+            return songArray.some(soundName => {
+                if(soundName.indexOf('lucy') !== -1){
+                    didLucyPlay = true;
+                }
+                else if(soundName.indexOf('freddie') !== -1){
+                    didFreddiePlay = true;
+                }
+                else if(soundName.indexOf('geoff') !== -1){
+                    didGeoffPlay = true;
+                }
+                return didFreddiePlay && didGeoffPlay && didLucyPlay
+            })
         case 3:
             let count = 0;
             for (let i = 0; i < songArray.length; i++) {
