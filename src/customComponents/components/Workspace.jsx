@@ -48,7 +48,7 @@ import lucyIdle from '../assets/animations/lucyIdle.json';
 import lucyJump from '../assets/animations/lucyJump.json';
 import lucySmall from '../assets/animations/lucySmall.json';
 
-import { createAnimationsArray } from '../assets/util.js';
+import { createAnimationsArray, transformBlockData } from '../assets/util.js';
 
 
 const soundFileToNameMap = {
@@ -73,7 +73,6 @@ const soundFileToNameMap = {
 };
 
 const getSoundNameFromFile = soundFile => soundFileToNameMap[soundFile];
-
 const getSoundNamesFromSongArray = songArray => songArray.map(song => getSoundNameFromFile(song));
 
 class Workspace extends Component {
@@ -194,6 +193,12 @@ class Workspace extends Component {
             classes,
             blockData,
         } = this.props;
+
+        const blockDataParsed = blockData.editingTarget.blocks._blocks;
+
+        console.log(blockDataParsed);
+        console.log("HELLO")
+        console.log("TRANSFORMED", transformBlockData(blockDataParsed))
 
         const defaultOptionsFreddie = {
             loop: true,

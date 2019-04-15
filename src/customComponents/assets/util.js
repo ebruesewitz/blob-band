@@ -19,11 +19,81 @@
     freddieIdle,
 ] */
 
+const OPCODES = {
+    RUN_BLOCK: 'event_whenflagclicked',
+    LOOP_BLOCK: 'control_repeat',
+}
+
 const getFirstCharFromSoundName = soundName => soundName[0];
 
 const isLucySoundName = soundName => getFirstCharFromSoundName(soundName) === 'l';
 const isGeoffSoundName = soundName => getFirstCharFromSoundName(soundName) === 'g';
 const isFreddySoundName = soundName => getFirstCharFromSoundName(soundName) === 'f';
+
+const findNextBlock = blockObj => blockObj.next;
+
+const findLoopChild = (blockData, loopId) => {
+    const loopNext = blockData[loopId].next;
+    let loopChild;
+    Object.keys(blockData).some((id) => {
+        if(blockData[id].parent === loopId && loopNext !== id){
+            loopChild = id;
+            return true;
+        }
+        return false;
+    });
+    const sortedChildren = sortBlocks(blockData, loopChild);
+    return sortedChildren;
+}
+
+const sortBlocks = (blockData, startBlockId) => {
+    let sortedArray = [startBlockId];
+    if(blockData[startBlockId].opcode === OPCODES.LOOP_BLOCK){
+        const loopChildrenArray = findLoopChild(blockData, startBlockId);
+        if(blockData[loopChildrenArray[0]].opcode === OPCODES.LOOP_BLOCK){
+            loopChildrenArray.shift();
+        }
+        for(let i=0; i < blockData[startBlockId].fields.repeat.value ; i++){
+            sortedArray = sortedArray.concat(loopChildrenArray);
+        }
+    }
+    let nextBlock = findNextBlock(blockData[startBlockId]);
+    while(nextBlock != null){
+        const currentBlock = nextBlock;
+        if(blockData[currentBlock].opcode === OPCODES.LOOP_BLOCK){
+            const loopChildrenArray = findLoopChild(blockData, currentBlock);
+            if(blockData[loopChildrenArray[0]].opcode === OPCODES.LOOP_BLOCK){
+                loopChildrenArray.shift();
+            }
+            for(let i=0; i < blockData[currentBlock].fields.repeat.value ; i++){
+                sortedArray = sortedArray.concat(loopChildrenArray);
+            }
+        }else{
+            sortedArray.push(currentBlock);
+        }
+        nextBlock = findNextBlock(blockData[currentBlock]);
+    }
+    if(blockData[sortedArray[0]].opcode === OPCODES.RUN_BLOCK){
+        sortedArray.shift();
+    }
+    return sortedArray;
+}
+
+export const transformBlockData = blockData => {
+    let sortedData = [];
+
+    if(blockData && typeof blockData === 'object'){
+        Object.keys(blockData).some((id) => {
+            if(blockData[id].opcode === OPCODES.RUN_BLOCK){
+                sortedData = sortBlocks(blockData, blockData[id].id)
+                return true;
+            }
+            return false;
+        });
+    }
+    return sortedData;
+}
+
 
 export const createAnimationsArray = soundArray => (
     soundArray.map(sound => {
