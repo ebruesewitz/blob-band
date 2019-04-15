@@ -52,7 +52,11 @@ const styles = {
     color: colors.white,
   },
   secondaryStyles: {
-    color: colors.darkGray,
+    color: colors.white,
+    border: `2px solid ${colors.white}`,
+    '&:hover': {
+      boxShadow: `0px 0px 0px 2px ${colors.white}`,
+    },
   },
 }
 

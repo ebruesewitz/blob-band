@@ -40,7 +40,7 @@ class HintModal extends Component {
                         }}
                     >
                         <span className={classes.hint}>{hint}</span>
-                        <Button className={classes.hintButton} label='Got it!' onClick={this.handleCloseModal}></Button>
+                        <Button className={classes.hintButton} label='Got it!' onClick={this.handleCloseModal} primary></Button>
                     </Modal>
                 </div>
             </div>

@@ -308,7 +308,7 @@ class Workspace extends Component {
                     >
                         <span className={classes.hint}>{this.state.modalText}</span>
                         <div className={classes.girdDisplay}>
-                            <Button className={classes.modalButton} label={this.state.modalButtonText} onClick={this.handleCloseModal}></Button>
+                            <Button primary className={classes.modalButton} label={this.state.modalButtonText} onClick={this.handleCloseModal}></Button>
                         </div>
                     </Modal>
                 </div>
