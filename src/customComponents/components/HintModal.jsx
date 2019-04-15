@@ -39,8 +39,8 @@ class HintModal extends Component {
                             }
                         }}
                     >
-                        <p className={classes.hint}>{hint}</p>
-                        <Button className={classes.button} label='Got it!' onClick={this.handleCloseModal}></Button>
+                        <span className={classes.hint}>{hint}</span>
+                        <Button className={classes.hintButton} label='Got it!' onClick={this.handleCloseModal}></Button>
                     </Modal>
                 </div>
             </div>
@@ -82,8 +82,17 @@ const styles = {
         width: '50%',
         padding: 12,
     },
+    hintButton: { 
+        margin: 5,
+        marginTop: 10,
+        width: '20%',
+        padding: 12,
+    },
     hint: {
-        fontFamily: 'Roboto',
+        fontSize: 17,
+        textAlign: 'center',
+        fontFamily: 'Helvetica',
+        padding: 10,
     },
 }
 

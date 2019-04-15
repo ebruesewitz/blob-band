@@ -4,7 +4,9 @@ import Button from './Button.jsx';
 import HintModal from './HintModal.jsx';
 import Sound from 'react-sound';
 import Lottie from 'react-lottie';
-import { colors } from '../constants.js'
+import { colors } from '../constants.js';
+import Modal from 'react-modal';
+import * as constants from '../assets/textOptions';
 
 import geoffA from '../assets/sounds/geoffA.mp3';
 import geoffB from '../assets/sounds/geoffB.mp3';
@@ -48,7 +50,7 @@ import lucyIdle from '../assets/animations/lucyIdle.json';
 import lucyJump from '../assets/animations/lucyJump.json';
 import lucySmall from '../assets/animations/lucySmall.json';
 
-import { createAnimationsArray } from '../assets/util.js';
+import { createAnimationsArray, transformBlockData, validateBlocks } from '../assets/util.js';
 
 const soundFileToNameMap = {
     [lucyA]: 'lucyA',
@@ -71,31 +73,41 @@ const soundFileToNameMap = {
     [freddieRest]: 'freddieRest',
 };
 
-const getSoundNameFromFile = soundFile => soundFileToNameMap[soundFile];
+const fileToSoundNameMap = {
+    lucyA,
+    lucyB,
+    lucyC,
+    lucyD,
+    lucyE,
+    lucyRest,
+    geoffA,
+    geoffB,
+    geoffC,
+    geoffD,
+    geoffE,
+    geoffRest,
+    freddieA,
+    freddieB,
+    freddieC,
+    freddieD,
+    freddieE,
+    freddieRest,
+}
 
+const getSoundNameFromFile = soundFile => soundFileToNameMap[soundFile];
 const getSoundNamesFromSongArray = songArray => songArray.map(song => getSoundNameFromFile(song));
+
+const convertSoundNamesToFiles = soundNameArray => soundNameArray.map(soundName => fileToSoundNameMap[soundName]);
 
 class Workspace extends Component {
     constructor() {
         super();
         this.state = {
             shouldRenderSound: false,
-            songArray: [
-                lucyE,
-                geoffD,
-                freddieC,
-                freddieD,
-                lucyE,
-                geoffE,
-                freddieE,
-                geoffD,
-                lucyD,
-                freddieD,
-                lucyC,
-                freddieE,
-                geoffE,
-
-            ],
+            showPassModal: false,
+            modalText: '',
+            modalButtonText: '',
+            songArray: [],
             currentSong: null,
             index: 0,
             isStopped: false,
@@ -129,13 +141,28 @@ class Workspace extends Component {
         this.getArrayAndHandleSound = this.getArrayAndHandleSound.bind(this);
         this.handlePlaySound = this.handlePlaySound.bind(this);
         this.handleAnimation = this.handleAnimation.bind(this);
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+    }
+
+    handleOpenModal() {
+        this.setState({ showModal: true });
+    }
+
+    handleCloseModal() {
+        if (this.state.modalButtonText === 'Next') {
+            this.props.goToNextLevel();
+        }
+        this.setState({ showModal: false });
     }
 
     getArrayAndHandleSound() {
-        let animations = createAnimationsArray(getSoundNamesFromSongArray(this.state.songArray));
+        const soundArray = convertSoundNamesToFiles(transformBlockData(this.props.blockData));
+        let animations = createAnimationsArray(getSoundNamesFromSongArray(soundArray));
         this.setState({
             animationsArray: animations,
             index: 0,
+            songArray: soundArray,
         }, () => {
             this.handlePlaySound();
         });
@@ -147,19 +174,25 @@ class Workspace extends Component {
             currentSong: this.state.songArray[this.state.index],
             index: this.state.index + 1,
         }, () => {
-            console.log(this.state)
         });
     }
 
     handleSongFinishedPlaying() {
         if (this.state.index <= this.state.songArray.length - 1) {
-            this.setState({
-                currentSong: this.state.songArray[this.state.index],
-                index: this.state.index + 1,
-                currentLucyAnimation: lucyIdle,
-                currentGeoffAnimation: geoffIdle,
-                currentFreddieAnimation: freddieIdle,
-            })
+            if (this.state.currentSong === this.state.songArray[this.state.index]) {
+                this.setState({
+                    currentSong: this.state.songArray[this.state.index],
+                    index: this.state.index + 1,
+                })
+            } else {
+                this.setState({
+                    currentSong: this.state.songArray[this.state.index],
+                    index: this.state.index + 1,
+                    currentLucyAnimation: lucyIdle,
+                    currentGeoffAnimation: geoffIdle,
+                    currentFreddieAnimation: freddieIdle,
+                })
+            }
         } else {
             this.setState({
                 currentSong: null,
@@ -167,6 +200,20 @@ class Workspace extends Component {
                 currentGeoffAnimation: geoffIdle,
                 currentFreddieAnimation: freddieIdle,
             })
+            let songs = getSoundNamesFromSongArray(this.state.songArray);
+            let didPassLevel = validateBlocks(this.props.currentSelectedStep, songs, this.props.blockData);
+            if (didPassLevel) {
+                this.setState({
+                    modalText: 'Great job! You did it.',
+                    modalButtonText: 'Next',
+                })
+            } else {
+                this.setState({
+                    modalText: 'That\'s not quite right.',
+                    modalButtonText: 'Try again',
+                })
+            }
+            this.handleOpenModal();
         }
     }
 
@@ -191,7 +238,8 @@ class Workspace extends Component {
     render() {
         const {
             classes,
-            blockData,
+            currentSelectedStep,
+            goToNextLevel,
         } = this.props;
 
         const defaultOptionsFreddie = {
@@ -248,6 +296,22 @@ class Workspace extends Component {
                     this.getArrayAndHandleSound();
                 }} />
                 <HintModal />
+                <div className={classes.modalCenter}>
+                    <Modal className={classes.modal}
+                        isOpen={this.state.showModal}
+                        style={{
+                            overlay: {
+                                zIndex: 1000,
+                                backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                            }
+                        }}
+                    >
+                        <span className={classes.hint}>{this.state.modalText}</span>
+                        <div className={classes.girdDisplay}>
+                            <Button className={classes.modalButton} label={this.state.modalButtonText} onClick={this.handleCloseModal}></Button>
+                        </div>
+                    </Modal>
+                </div>
                 {this.state.shouldRenderSound && <Sound
                     url={this.state.currentSong}
                     playStatus={Sound.status.PLAYING}
@@ -295,6 +359,29 @@ const styles = {
     gridDisplay: {
         display: 'grid',
         gridTemplateColumns: 'auto auto',
+    },
+    modalCenter: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+    },
+    modalButton: {
+        margin: 5,
+        marginTop: 10,
+    },
+    modal: {
+        width: '40%',
+        height: '40%',
+        position: 'fixed',
+        top: '25%',
+        right: '30%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        borderRadius: '5px',
+        outline: 'none !important',
     },
 }
 

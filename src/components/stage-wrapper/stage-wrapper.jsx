@@ -21,6 +21,8 @@ const StageWrapperComponent = function (props) {
         stageSize,
         vm,
         blockData,
+        currentSelectedStep,
+        goToNextLevel,
     } = props;
 
     const stageDimensions = getStageDimensions(stageSize, isFullScreen);
@@ -30,12 +32,6 @@ const StageWrapperComponent = function (props) {
             className={styles.stageWrapper}
             dir={isRtl ? 'rtl' : 'ltr'}
         >
-            <Box className={styles.stageMenuWrapper}>
-                <StageHeader
-                    stageSize={stageSize}
-                    vm={vm}
-                />
-            </Box>
             <div
                 style={{
                     minHeight: stageDimensions.height,
@@ -46,7 +42,7 @@ const StageWrapperComponent = function (props) {
                     [styles.stageWrapper]: !isFullScreen,
                 })}
             >
-                <Workspace blockData={blockData}/>
+                <Workspace blockData={blockData} currentSelectedStep={currentSelectedStep} goToNextLevel={goToNextLevel}/>
             </div>
         </Box>
     );
