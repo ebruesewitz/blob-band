@@ -50,7 +50,7 @@ import lucyIdle from '../assets/animations/lucyIdle.json';
 import lucyJump from '../assets/animations/lucyJump.json';
 import lucySmall from '../assets/animations/lucySmall.json';
 
-import { createAnimationsArray, validateBlocks } from '../assets/util.js';
+import { createAnimationsArray, transformBlockData, validateBlocks } from '../assets/util.js';
 
 
 const soundFileToNameMap = {
@@ -74,9 +74,31 @@ const soundFileToNameMap = {
     [freddieRest]: 'freddieRest',
 };
 
-const getSoundNameFromFile = soundFile => soundFileToNameMap[soundFile];
+const fileToSoundNameMap = {
+    lucyA,
+    lucyB,
+    lucyC,
+    lucyD,
+    lucyE,
+    lucyRest,
+    geoffA,
+    geoffB,
+    geoffC,
+    geoffD,
+    geoffE,
+    geoffRest,
+    freddieA,
+    freddieB,
+    freddieC,
+    freddieD,
+    freddieE,
+    freddieRest,
+}
 
+const getSoundNameFromFile = soundFile => soundFileToNameMap[soundFile];
 const getSoundNamesFromSongArray = songArray => songArray.map(song => getSoundNameFromFile(song));
+
+const convertSoundNamesToFiles = soundNameArray => soundNameArray.map(soundName => fileToSoundNameMap[soundName]);
 
 class Workspace extends Component {
     constructor() {
@@ -137,10 +159,12 @@ class Workspace extends Component {
     }
 
     getArrayAndHandleSound() {
-        let animations = createAnimationsArray(getSoundNamesFromSongArray(this.state.songArray));
+        const soundArray = convertSoundNamesToFiles(transformBlockData(this.props.blockData));
+        let animations = createAnimationsArray(getSoundNamesFromSongArray(soundArray));
         this.setState({
             animationsArray: animations,
             index: 0,
+            songArray: soundArray,
         }, () => {
             this.handlePlaySound();
         });
@@ -209,7 +233,7 @@ class Workspace extends Component {
     render() {
         const {
             classes,
-            blockData,
+            currentSelectedStep,
         } = this.props;
 
         const defaultOptionsFreddie = {

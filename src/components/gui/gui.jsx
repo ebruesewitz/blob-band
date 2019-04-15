@@ -202,6 +202,7 @@ class GUIComponent extends Component{
                                     stageSize={stageSize}
                                     vm={vm}
                                     blockData={blockData}
+                                    currentSelectedStep={this.state.currentSelectedStep}
                                 />
                             </Box>
                         </Box>
@@ -313,7 +314,10 @@ GUIComponent.defaultProps = {
 const mapStateToProps = state => ({
     // This is the button's mode, as opposed to the actual current state
     stageSizeMode: state.scratchGui.stageSize.stageSize,
-    blockData: state.scratchGui.vm
+    blockData: state.scratchGui.vm 
+        && state.scratchGui.vm.editingTarget 
+        && state.scratchGui.vm.editingTarget.blocks 
+        && state.scratchGui.vm.editingTarget.blocks._blocks
 });
 
 const GUIComponentWithClasses = (injectIntl(connect(
