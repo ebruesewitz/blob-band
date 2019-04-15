@@ -202,6 +202,7 @@ class GUIComponent extends Component{
                                     stageSize={stageSize}
                                     vm={vm}
                                     blockData={blockData}
+                                    currentSelectedStep={this.state.currentSelectedStep}
                                 />
                             </Box>
                         </Box>

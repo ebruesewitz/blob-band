@@ -216,6 +216,7 @@ class Workspace extends Component {
     render() {
         const {
             classes,
+            currentSelectedStep,
         } = this.props;
 
         const defaultOptionsFreddie = {
