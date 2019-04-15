@@ -229,7 +229,7 @@ export function validateBlocks(currentLevel, songArray, blockData) {
         case 3:
             count = 0;
             for (let i = 0; i < songArray.length; i++) {
-                if (songArray[i].indexOf('freddieD') !== -1) {
+                if (songArray[i].indexOf('freddieB') !== -1) {
                     count = count + 1;
                 }
             }
@@ -259,7 +259,7 @@ export function validateBlocks(currentLevel, songArray, blockData) {
         case 5:
             count = 0;
             for (let i = 0; i < songArray.length; i++) {
-                if (songArray[i].indexOf('freddieE') !== -1) {
+                if (songArray[i].indexOf('freddieC') !== -1) {
                     count = 1;
                     break;
                 } else {
@@ -296,13 +296,13 @@ export function validateBlocks(currentLevel, songArray, blockData) {
             return false;
         }
         case 8:
-        return Object.keys(blockData).some((id) => {
-            if(blockData[id].opcode === OPCODES.LOOP_BLOCK && blockData[id].fields.repeat.value === 2){
-                return true;
-            } else {
-                return false;
-            }
-        });
+            return Object.keys(blockData).some((id) => {
+                if(blockData[id].opcode === OPCODES.LOOP_BLOCK && blockData[id].fields.repeat.value === "2"){
+                    return true;
+                } else {
+                    return false;
+                }
+            });
         case 9:
         let allSoundNames = songArray.join();
         console.log(allSoundNames);
