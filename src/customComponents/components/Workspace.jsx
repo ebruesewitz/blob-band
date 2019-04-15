@@ -150,6 +150,9 @@ class Workspace extends Component {
     }
 
     handleCloseModal() {
+        if(this.state.modalButtonText === 'Next'){
+            this.props.goToNextLevel();
+        }
         this.setState({ showModal: false });
     }
 
@@ -229,6 +232,7 @@ class Workspace extends Component {
         const {
             classes,
             currentSelectedStep,
+            goToNextLevel,
         } = this.props;
 
         const defaultOptionsFreddie = {

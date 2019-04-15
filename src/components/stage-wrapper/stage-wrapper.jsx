@@ -22,6 +22,7 @@ const StageWrapperComponent = function (props) {
         vm,
         blockData,
         currentSelectedStep,
+        goToNextLevel,
     } = props;
 
     const stageDimensions = getStageDimensions(stageSize, isFullScreen);
@@ -41,7 +42,7 @@ const StageWrapperComponent = function (props) {
                     [styles.stageWrapper]: !isFullScreen,
                 })}
             >
-                <Workspace blockData={blockData} currentSelectedStep={currentSelectedStep}/>
+                <Workspace blockData={blockData} currentSelectedStep={currentSelectedStep} goToNextLevel={goToNextLevel}/>
             </div>
         </Box>
     );

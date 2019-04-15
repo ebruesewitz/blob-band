@@ -179,6 +179,7 @@ class GUIComponent extends Component{
                                     vm={vm}
                                     blockData={blockData}
                                     currentSelectedStep={this.state.currentSelectedStep}
+                                    goToNextLevel={() => this.setCurrentSelectedStep(this.state.currentSelectedStep + 1)}
                                 />
                             </Box>
                         </Box>
