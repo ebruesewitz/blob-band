@@ -108,11 +108,7 @@ class Workspace extends Component {
             showPassModal: false,
             modalText: '',
             modalButtonText: '',
-            songArray: [
-                geoffD,
-                freddieC,
-                freddieD,
-            ],
+            songArray: [],
             currentSong: null,
             index: 0,
             isStopped: false,
@@ -293,6 +289,12 @@ class Workspace extends Component {
                 <div className={classes.modalCenter}>
                     <Modal className={classes.modal}
                         isOpen={this.state.showModal}
+                        style={{
+                            overlay: {
+                                zIndex: 1000,
+                                backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                            }
+                        }}
                     >
                         <span className={classes.hint}>{this.state.modalText}</span>
                         <div className={classes.girdDisplay}>
@@ -358,22 +360,18 @@ const styles = {
         marginTop: 10,
     },
     modal: {
-        width: '30%',
-        height: '30%',
+        width: '40%',
+        height: '40%',
         position: 'fixed',
         top: '25%',
-        right: '35%',
+        right: '30%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
         borderRadius: '5px',
-        borderStyle: 'solid',
-        borderColor: 'grey',
-        borderWidth: 2,
         outline: 'none !important',
-        zIndex: 69,
     },
 }
 

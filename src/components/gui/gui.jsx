@@ -156,28 +156,6 @@ class GUIComponent extends Component{
                                     <span className={classes.instructionText}>{instructions[this.state.currentSelectedStep - 1]}</span>
                                 </div>
                                 <Box className={styles.editorWrapper}>
-                                    <Tabs
-                                        forceRenderTabPanel
-                                        className={tabClassNames.tabs}
-                                        selectedIndex={activeTabIndex}
-                                        selectedTabClassName={tabClassNames.tabSelected}
-                                        selectedTabPanelClassName={tabClassNames.tabPanelSelected}
-                                        onSelect={onActivateTab}
-                                    >
-                                        <TabList className={tabClassNames.tabList}>
-                                    <Tab className={tabClassNames.tab}>
-                                        <img
-                                            draggable={false}
-                                            src={codeIcon}
-                                        />
-                                        <FormattedMessage
-                                            defaultMessage="Code"
-                                            description="Button to get to the code panel"
-                                            id="gui.gui.codeTab"
-                                        />
-                                    </Tab>
-                                    </TabList>
-                                        <TabPanel className={tabClassNames.tabPanel}>
                                             <Box className={styles.blocksWrapper}>
                                                 <Blocks
                                                     canUseCloud={canUseCloud}
@@ -190,8 +168,6 @@ class GUIComponent extends Component{
                                                     vm={vm}
                                                 />
                                             </Box>
-                                        </TabPanel>
-                                    </Tabs>
                                 </Box>
                             </div>
 
