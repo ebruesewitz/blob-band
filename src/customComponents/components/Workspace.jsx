@@ -50,7 +50,6 @@ import lucySmall from '../assets/animations/lucySmall.json';
 
 import { createAnimationsArray } from '../assets/util.js';
 
-
 const soundFileToNameMap = {
     [lucyA]: 'lucyA',
     [lucyB]: 'lucyB',
