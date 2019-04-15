@@ -150,7 +150,7 @@ class Workspace extends Component {
     }
 
     handleCloseModal() {
-        if(this.state.modalButtonText === 'Next'){
+        if (this.state.modalButtonText === 'Next') {
             this.props.goToNextLevel();
         }
         this.setState({ showModal: false });
@@ -179,13 +179,20 @@ class Workspace extends Component {
 
     handleSongFinishedPlaying() {
         if (this.state.index <= this.state.songArray.length - 1) {
-            this.setState({
-                currentSong: this.state.songArray[this.state.index],
-                index: this.state.index + 1,
-                currentLucyAnimation: lucyIdle,
-                currentGeoffAnimation: geoffIdle,
-                currentFreddieAnimation: freddieIdle,
-            })
+            if (this.state.currentSong === this.state.songArray[this.state.index]) {
+                this.setState({
+                    currentSong: this.state.songArray[this.state.index],
+                    index: this.state.index + 1,
+                })
+            } else {
+                this.setState({
+                    currentSong: this.state.songArray[this.state.index],
+                    index: this.state.index + 1,
+                    currentLucyAnimation: lucyIdle,
+                    currentGeoffAnimation: geoffIdle,
+                    currentFreddieAnimation: freddieIdle,
+                })
+            }
         } else {
             this.setState({
                 currentSong: null,
