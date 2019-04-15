@@ -197,7 +197,6 @@ export function validateBlocks(currentLevel, songArray, blockData) {
         case 1:
             let count = 0;
             for (let i = 0; i < songArray.length; i++) {
-                console.log(songArray[i]);
                 if (songArray[i].indexOf('lucy') !== -1) {
                     count = 1;
                     break;
@@ -210,10 +209,27 @@ export function validateBlocks(currentLevel, songArray, blockData) {
             } else {
                 return false;
             }
+        case 2:
+            let didLucyPlay = false;
+            let didFreddiePlay = false;
+            let didGeoffPlay = false;
+
+            return songArray.some(soundName => {
+                if(soundName.indexOf('lucy') !== -1){
+                    didLucyPlay = true;
+                }
+                else if(soundName.indexOf('freddie') !== -1){
+                    didFreddiePlay = true;
+                }
+                else if(soundName.indexOf('geoff') !== -1){
+                    didGeoffPlay = true;
+                }
+                return didFreddiePlay && didGeoffPlay && didLucyPlay
+            })
         case 3:
             count = 0;
             for (let i = 0; i < songArray.length; i++) {
-                if (songArray[i].indexOf('freddieB') !== -1) {
+                if (songArray[i].indexOf('freddieD') !== -1) {
                     count = count + 1;
                 }
             }
@@ -241,12 +257,19 @@ export function validateBlocks(currentLevel, songArray, blockData) {
             }
         });
         case 5:
+            count = 0;
             for (let i = 0; i < songArray.length; i++) {
-                if (songArray[i].indexOf('geoffC') !== -1) {
-                    return true;
+                if (songArray[i].indexOf('freddieE') !== -1) {
+                    count = 1;
+                    break;
                 } else {
-                    return false;
+                    count = 0;
                 }
+            }
+            if (count === 1) {
+                return true;
+            } else {
+                return false;
             }
         case 6:
         count = 0;
