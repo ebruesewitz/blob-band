@@ -1,1 +1,7 @@
-Tessa self assessment initial
+This project has been something I’ve wanted to create for years now. I’ve always been really passionate about education, specifically computer science education, and I always knew I wanted to incorporate that into my senior design project. I used the education skills I learned from my co-op on the K-5 Curriculum team at Code.org as well as the technical skills I’ve learned from my other co-ops at Microsoft about web development, specifically with React.
+
+Throughout this past semester, I was able to apply and grow my technical skills. It’s one thing to work on project that has already been created and to be able to recognize and build on existing patterns and infrastructure, but another to build an entire web app from scratch. I learned a lot about things like npm, how to build new things from existing repositories, how to create a new React app from scratch, etc. I was also able to continue working on my HTML/CSS/React skills and my education skills by creating a 10-level curriculum.
+
+A lot of the work I personally did I did together with Katey. We worked well as a team on the UI of our webapp. Besides the curriculum, my personal contributions included adding the navigation between levels, creating custom drag and drop Scratch blocks, incorporating the animations we got from my sister Olivia, and recording and incorporating our custom sounds. I also did a lot of work making sure assignments were being turn in on time and created and designed our entire poster. 
+
+Most of the obstacles we faced were due to the Scratch 3.0 project still being in beta and not having good documentation. The main obstacle we faced was due to team dynamics. 
