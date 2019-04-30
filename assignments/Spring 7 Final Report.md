@@ -44,23 +44,39 @@ Curriculum wise, when designing computer science activities, it's really importa
 ### Summary of Hours:
 ##### Tessa
 Fall-
+
 Fall assignments: 10 Hours
+
 Weekly meetings: 25 Hours
+
 Planning UI/UX with Elisabeth: 6 Hours
 
+
 Spring-
+
 Weekly meetings: 25 Hours
+
 Designing curriculum: 3 Hours
+
 Designing and editing poster: 5 Hours
+
 Incorporating custom animations and sounds: 5 Hours
+
 UI work with Katey: 10 Hours
+
 Creating custom blocks: 5 Hours
+
 Navigation: 3 Hours
+
 Final report: 3 Hours
 
+
 Total-
+
 Fall: 41 Hours
+
 Spring: 59 Hours
+
 Year: 100 Hours
 
 ##### Katey
