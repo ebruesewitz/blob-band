@@ -77,11 +77,11 @@ Spring: 59 Hours
 
 Year: 100 Hours
 
-##### Katey
+#### Katey
 // TODO: KATEY
-##### Elisabeth
+#### Elisabeth
 // TODO: ELISABETH
-##### Morgan
+#### Morgan
 // TODO: MORGAN
 
 // TODO: ADD TOTALS
