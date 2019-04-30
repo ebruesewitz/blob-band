@@ -4,6 +4,7 @@
 Computer science education, especially for young children, is important because it teaches valuable life skills and engages everyone, no matter their background, preventing stereotypes from forming. The Hour of Code is a global computer science education movement that Code.org started in 2013. Since then, it has engaged over 100 million students around the world in 45 different languages. During Hour of Code activities, females make up 50% of all participants. Our project  engages students in computer science through music. It allows them to express themselves creatively by creating new songs with conditionals, loops, and more basic computer science concepts.
 ##### Computer Science Background
 One of our members, Tessa, had the opportunity to do one of her co-ops on the Curriculum team at Code.org where she got to work on K-5 curriculum. She had experience with creating activities meant for a younger audience and learned a lot about computer science education. 
+
 // TODO: MORGAN add computer science facts from Code.org
 ##### Music Background
 // TODO: MORGAN add music background
@@ -24,6 +25,7 @@ Curriculum wise, when designing computer science activities, it's really importa
 
 ### Test Plan and Results 
 (describe execution and results of all tests)
+
 // TODO: ELISABETH
 ### [User Manual](https://github.com/ebruesewitz/senior-design-final/blob/master/assignments/Spring%202%20User%20Guide.md) 
 // TODO: SOMEONE
@@ -34,8 +36,11 @@ Curriculum wise, when designing computer science activities, it's really importa
 // TODO: MORGAN
 ##### [Final Self-Assessments (spring)](https://github.com/ebruesewitz/senior-design-final/tree/master/assignments/Spring6SelfAssessments)
 // TODO: TESSA
+
 // TODO: KATEY
+
 // TODO: ELISABETH
+
 // TODO: MORGAN
 
 ### Summary of Hours:
@@ -50,4 +55,5 @@ Curriculum wise, when designing computer science activities, it's really importa
 
 ### Other 
 [Link to old repository](https://github.com/kpittman23/senior-design) with Fall final report as the README
+
 [Link to forked Scratch Blocks repo](https://github.com/tessawiedmann/scratch-blocks) with the custom blocks that Tessa made
