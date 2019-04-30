@@ -42,8 +42,8 @@ Curriculum wise, when designing computer science activities, it's really importa
 // TODO: MORGAN
 
 ### Summary of Hours:
-##### Tessa
-Fall-
+#### Tessa
+##### Fall
 
 Fall assignments: 10 Hours
 
@@ -51,8 +51,7 @@ Weekly meetings: 25 Hours
 
 Planning UI/UX with Elisabeth: 6 Hours
 
-
-Spring-
+##### Spring
 
 Weekly meetings: 25 Hours
 
@@ -70,8 +69,7 @@ Navigation: 3 Hours
 
 Final report: 3 Hours
 
-
-Total-
+##### Total
 
 Fall: 41 Hours
 
