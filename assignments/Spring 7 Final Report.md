@@ -26,7 +26,7 @@ Curriculum wise, when designing computer science activities, it's really importa
 (describe execution and results of all tests)
 // TODO: ELISABETH
 ### [User Manual](https://github.com/ebruesewitz/senior-design-final/blob/master/assignments/Spring%202%20User%20Guide.md) 
-// TODO: KATEY
+// TODO: SOMEONE
 ### [Spring Final PPT Presentation](https://github.com/ebruesewitz/senior-design-final/blob/master/assignments/Spring%203%20Slides)
 ### [Final Expo Poster](https://github.com/ebruesewitz/senior-design-final/blob/master/assignments/Spring%204%205%20Final%20Poster.pdf)
 ### Assessments
