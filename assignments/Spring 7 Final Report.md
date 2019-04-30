@@ -35,8 +35,6 @@ Curriculum wise, when designing computer science activities, it's really importa
 ##### [Initial Self-Assessments (fall)](https://github.com/ebruesewitz/senior-design-final/tree/master/assignments/Fall3SelfAssessments)
 // TODO: MORGAN
 ##### [Final Self-Assessments (spring)](https://github.com/ebruesewitz/senior-design-final/tree/master/assignments/Spring6SelfAssessments)
-// TODO: TESSA
-
 // TODO: KATEY
 
 // TODO: ELISABETH
@@ -45,13 +43,34 @@ Curriculum wise, when designing computer science activities, it's really importa
 
 ### Summary of Hours:
 ##### Tessa
-// TODO: TESSA
+Fall-
+Fall assignments: 10 Hours
+Weekly meetings: 25 Hours
+Planning UI/UX with Elisabeth: 6 Hours
+
+Spring-
+Weekly meetings: 25 Hours
+Designing curriculum: 3 Hours
+Designing and editing poster: 5 Hours
+Incorporating custom animations and sounds: 5 Hours
+UI work with Katey: 10 Hours
+Creating custom blocks: 5 Hours
+Navigation: 3 Hours
+Final report: 3 Hours
+
+Total-
+Fall: 41 Hours
+Spring: 59 Hours
+Year: 100 Hours
+
 ##### Katey
 // TODO: KATEY
 ##### Elisabeth
 // TODO: ELISABETH
 ##### Morgan
 // TODO: MORGAN
+
+// TODO: ADD TOTALS
 
 ### Other 
 [Link to old repository](https://github.com/kpittman23/senior-design) with Fall final report as the README
