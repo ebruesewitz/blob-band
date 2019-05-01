@@ -102,7 +102,36 @@ Spring: 60 Hours
 Year: 105 Hours
 
 #### Elisabeth
-// TODO: ELISABETH
+##### Fall
+
+Fall assignments: 15 Hours
+
+Weekly meetings: 25 Hours
+
+Planning UI/UX with Tessa: 6 Hours
+
+Designing UI: 5 Hours
+
+##### Spring
+
+Weekly meetings: 8 Hours
+
+Researching block libraries: 3 Hours
+
+Scratch refactoring and troubleshooting: 25 Hours
+
+UI integration work: 16 Hours
+
+Final report: 2 Hours
+
+##### Total
+
+Fall: 51 Hours
+
+Spring: 54 Hours
+
+Year: 105 Hours
+
 #### Morgan
 // TODO: MORGAN
 
