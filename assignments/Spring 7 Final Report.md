@@ -135,7 +135,8 @@ Year: 105 Hours
 #### Morgan
 // TODO: MORGAN
 
-// TODO: ADD TOTALS
+#### Total time team spent on project: 310 Hours
+// TODO: MORGAN ADD YOUR TOTAL TO THE LINE ABOVE
 
 ### Other 
 [Link to old repository](https://github.com/kpittman23/senior-design) with Fall final report as the README
