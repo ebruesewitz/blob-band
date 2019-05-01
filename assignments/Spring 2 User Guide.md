@@ -16,12 +16,7 @@ Press "Let's get started!" and follow the instructions on each level.
 
 Drag and drop the code blocks from the toolbox to the workplace.
 
-```
-insert gif
-
-```
-
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://media.giphy.com/media/1Bdt0JWFtXZm4aUPG3/giphy.gif)
 
 ## Step Four: 
 
