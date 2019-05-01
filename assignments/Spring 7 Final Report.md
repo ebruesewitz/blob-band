@@ -1,4 +1,4 @@
-# [Blob Band](blobband.com) Final Report
+# [Blob Band](https://blobband.com) Final Report
 ### Project Description 
 ##### Abstract
 Computer science education, especially for young children, is important because it teaches valuable life skills and engages everyone, no matter their background, preventing stereotypes from forming. The Hour of Code is a global computer science education movement that Code.org started in 2013. Since then, it has engaged over 100 million students around the world in 45 different languages. During Hour of Code activities, females make up 50% of all participants. Our project  engages students in computer science through music. It allows them to express themselves creatively by creating new songs with conditionals, loops, and more basic computer science concepts.
