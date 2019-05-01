@@ -10,9 +10,7 @@ Visit [our website](https://blobband.com) to access the Music Machines game. If 
 
 Press "Let's get started!" and follow the instructions on each level. 
 
-```
-screenshot here
-```
+![Landing Page](https://github.com/ebruesewitz/senior-design-final/blob/master/assignments/Screenshots/title.png?raw=true)
 
 ## Step Three: 
 
