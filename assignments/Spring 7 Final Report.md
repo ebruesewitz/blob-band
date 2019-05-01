@@ -36,7 +36,13 @@ We also wrote a few integration tests to ensure everything worked when the user 
 ##### [Initial Self-Assessments (fall)](https://github.com/ebruesewitz/senior-design-final/tree/master/assignments/Fall3SelfAssessments)
 // TODO: MORGAN
 ##### [Final Self-Assessments (spring)](https://github.com/ebruesewitz/senior-design-final/tree/master/assignments/Spring6SelfAssessments)
-// TODO: KATEY
+
+__Katey__
+I got to work on many different things for our project, Blob Band. I crafted the UI using react based on the mockups made by another teammate (Elisabeth). I also wrote code that synced the animations with the sound, as well as the code that mapped the output from the interpreter Elisabeth wrote for Scratch to the actual animations and sounds. I also participated in all the assignments. I think I applied my skillset in the best ways and was also able to build new skillsets. Previously, I had minimal experience in react.js, but now I am familiar and comfortable with it. Specifically, I was able to apply some of my skills from co-op in writing a lot of JavaScript string manipulation and array mapping code. 
+
+Learning how to navigate and use react was one of my biggest challenges. Elisabeth works with react every day at work, so to have the most efficient app, she had us use several advanced technologies and libraries. Because some of the libraries we were using were so advanced, there was a bit of a learning curve and not enough documentation for the specific things we were trying to create. In the end, I feel like learning how to use react was a success as well, because it’s a skill I can use going forward. 
+Our group was able to pull together a working hour of code activity. Our activity is about an hour long (for 7-year-olds), self-guided, and fun. We got a lot of great feedback at the expo that I know will make our app better going forward, but what we were able to pull off in a shot time was still impressive. 
+
 
 // TODO: ELISABETH
 
@@ -79,7 +85,32 @@ Spring: 59 Hours
 Year: 100 Hours
 
 #### Katey
-// TODO: KATEY
+##### Fall
+
+Fall assignments: 15 Hours
+
+Weekly meetings: 30 Hours
+
+##### Spring
+
+Weekly meetings: 25 Hours
+
+Incorporating custom animations and sounds: 15 Hours
+
+UI work with Tessa: 10 Hours
+
+Final report: 3 Hours
+
+Utility code: 7 hours
+
+##### Total
+
+Fall: 45 Hours
+
+Spring: 60 Hours
+
+Year: 105 Hours
+
 #### Elisabeth
 // TODO: ELISABETH
 #### Morgan
