@@ -10,20 +10,13 @@ Visit [our website](https://blobband.com) to access the Music Machines game. If 
 
 Press "Let's get started!" and follow the instructions on each level. 
 
-```
-screenshot here
-```
+![Landing Page](https://github.com/ebruesewitz/senior-design-final/blob/master/assignments/Screenshots/title.png?raw=true)
 
 ## Step Three: 
 
 Drag and drop the code blocks from the toolbox to the workplace.
 
-```
-insert gif
-
-```
-
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://media.giphy.com/media/1Bdt0JWFtXZm4aUPG3/giphy.gif)
 
 ## Step Four: 
 
