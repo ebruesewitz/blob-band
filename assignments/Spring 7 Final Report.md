@@ -9,7 +9,7 @@ One of our members, Tessa, had the opportunity to do one of her co-ops on the Cu
 ##### Music Background
 // TODO: MORGAN add music background
 ##### Technical Background
-// TODO: ELISABETH
+Our project is a single page web application built using React. We integrated Scratch's drag and drop code block interface with our custom-built layout. We used Lottie, an open-source library developed by AirBnb, to transform After Effects animations into animated SVGs.
 
 ### User Interface Specification 
 Because our Hour of Code was created for 2nd and 3rd graders, there were several things we had to keep in mind when creating the UI. For example, 2nd and 3rd graders don't always have great motor skills. Because of this, we tried to keep the UI from being overwhelming, using big easy-to-click buttons, and drag and drop block based coding. We also had to take into account the relative reading level of 2nd and 3rd graders. For each level, we created simple instructions that corresponded to the reading levels. Mainly, we tried to keep the UI clean, simple, and intuitive.
@@ -24,9 +24,10 @@ Curriculum wise, when designing computer science activities, it's really importa
 ![Landing Page](https://github.com/ebruesewitz/senior-design-final/blob/master/assignments/Screenshots/level4.png?raw=true)
 
 ### Test Plan and Results 
-(describe execution and results of all tests)
+We wrote unit tests for all of our components using Jest and Enzyme with snapshot testing. Jest allows us to make simple assertions so we know whether or not our tests failed. Enzyme creates a shallow rendering of our components in a virtual DOM so we can see how our components will respond to different changes in state or props. We mount our component in the virtual DOM, take a snapshot of what the DOM looks like, and then store that in a snapshot file. Our unit tests will pass if the snapshots stay the same each run. 
 
-// TODO: ELISABETH
+We also wrote a few integration tests to ensure everything worked when the user navigates between pages and levels. We have 219 total unit tests, 5 snapshots, and 3 integration tests. All of them passed.
+
 ### [User Manual](https://github.com/ebruesewitz/senior-design-final/blob/master/assignments/Spring%202%20User%20Guide.md) 
 // TODO: SOMEONE
 ### [Spring Final PPT Presentation](https://github.com/ebruesewitz/senior-design-final/blob/master/assignments/Spring%203%20Slides)
