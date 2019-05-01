@@ -24,3 +24,4 @@ Click the "Run" button to start the music machines! The play area will be popula
 
 
 ## FAQ
+Each level has a hint button in case students need some help! 
